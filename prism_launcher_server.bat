@@ -5,6 +5,10 @@ set /p prismdir=<"%tmp%\prisminstance.tmp"
 del "%tmp%\prisminstance.tmp"
 :: Remove the "InstanceDir="
 set "prismdir=%prismdir:~12%"
+:: Check if it's only instances and if it is, add the default folder where it would be.
+if "%prismdir%" == "instances" (
+  set primdir=%appdata%\%prismdir%
+)
 echo Prism Launch Instances folder is: %prismdir% ... checking for instances
 :: Get any avalible Instances and get a file from the first instance returned by dir
 dir /b "%prismdir%" > "%tmp%\instances.tmp"
