@@ -7,7 +7,7 @@ del "%tmp%\prisminstance.tmp"
 set "prismdir=%prismdir:~12%"
 :: Check if it's only instances and if it is, add the default folder where it would be.
 if "%prismdir%" == "instances" (
-  set prismdir=%appdata%\%prismdir%
+  set prismdir=%appdata%\PrismLauncher\%prismdir%
 )
 echo Prism Launch Instances folder is: %prismdir% ... checking for instances
 :: Get any avalible Instances and get a file from the first instance returned by dir
@@ -156,3 +156,4 @@ powershell -Command "(Get-Content '%prismdir%\%name%\patches\net.minecraft.json'
 echo Main-Class value replaced with %mainclass% in net.minecraft.json
 echo Done.
 pause
+
